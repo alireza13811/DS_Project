@@ -1,210 +1,66 @@
 #include <iostream>
 #include "Patient.h"
+#include "node.h"
+#include "List.h"
 
 using namespace std;
 
 
-class Node
-{
-    Patient data;
-    Node* next = nullptr;
-    
-public:
-
-    static Node* createNode(Patient data) {
-        Node* node = new Node;
-        node->data = data;
-        node->next = nullptr;
-        return node;
-    }
-
-    void printNode(Node* node) {
-        cout << node->data << endl;
-    }
-    void set_next(Node* next) {
-        this->next = next;
-    }
-    void set_data(Patient data) {
-        this->data = data;
-    }
-    Node* get_next() const {
-        return next;
-    }
-
-    Patient get_data() const {
-        return data;
-    }
-};
-
-
-class Vector {
-    Node* head = new Node;
-    Node* tail = new Node;
-
-public:
-    Node* get_tail() const {
-        return tail;
-    }
-
-    Node* get_head() const {
-        return head;
-    }
-
-    Patient get_node_data(int index) {
-        Node* node = head->get_next();
-        for (int i = 0; i < index; i++) {
-            node = node->get_next();
-        }
-        return node->get_data();
-    }
-
-    void push_front(Patient data) {
-        Node* node = Node::createNode(data);
-
-        if (!head->get_next()) {
-            head->set_next(node);
-            tail->set_next(node);
-        }
-        else {
-            Node* tmp = head->get_next();
-            head->set_next(node);
-            node->set_next(tmp);
-        }
-    }
-
-    void push_back(Patient data) {
-        Node* node = Node::createNode(data);
-        if (!head->get_next()) {
-            head->set_next(node);
-        }
-        else {
-            Node* tmp = new Node;
-            tmp = head->get_next();
-            while (tmp->get_next())
-            {
-                tmp = tmp->get_next();
-            }
-            tmp->set_next(node);
-        }
-        tail->set_next(node);
-    }
-
-    void pop_front() const {
-        if (head->get_next()) {
-            Node* tmp = head->get_next()->get_next();
-            head->set_next(tmp);
-          
-        }
-    }
-
-    void pop_back() {
-        if (head->get_next()) {
-            Node* tmp = head->get_next();
-            while (tmp->get_next()->get_next())
-            {
-                tmp = tmp->get_next();
-            }
-            tmp->set_next(nullptr);
-            tail->set_next(tmp);
-        }
-    }
-
-    void insert(Patient data, int index) {
-        Node* node = new Node;
-        node->set_data(data);
-        int flag = 1;
-        Node* node2 = head;
-        for (int i = 0; i < index; i++) {
-            if (!node2->get_next()) {
-                cout << "invalid input size!" << endl;
-                flag = 0;
-                break;
-            }
-            node2 = node2->get_next();
-        }
-        if (flag) {
-            Node* tmp = node2->get_next();
-            node2->set_next(node);
-            node->set_next(tmp);
-        }
-    }
-
-    void remove(int index) {
-        int flag = 1;
-        Node* node = head;
-        Node* prev = node;
-        for (int i = 0; i <= index; i++) {
-            if (!node->get_next()) {
-                cout << "invalid input size!" << endl;
-                flag = 0;
-                break;
-            }
-            prev = node;
-            node = node->get_next();
-        }
-        if (flag) {
-            prev->set_next(node->get_next());
-            delete node;
-        }
-    }
-
-    int search(Patient data) {
-        int result = -1, index = 0;
-        Node* node = head;
-        while (node->get_next())
-        {
-            if (node->get_next()->get_data() == data) {
-                result = index;
-                break;
-            }
-            node = node->get_next();
-            index++;
-        }
-        return result;
-    }
-
-
-    void print() {
-        if (head->get_next()) {
-            Node* node = head;
-            while (node->get_next())
-            {
-                cout << node->get_next()->get_data() << ' ';
-                node = node->get_next();
-            }
-            cout << endl;
-        }
-    }
-
-    int length() {
-        Node* node = new Node;
-        node = head;
-        int num = 0;
-        while (node->get_next())
-        {
-            num++;
-            node = node->get_next();
-        }
-        return num;
-    }
-
-    void clear() {
-        Node* node = head;
-        Node* next = node;
-        while (node->get_next())
-        {
-            next = node->get_next();
-            delete node;
-            node = next;
-        }
-        head->set_next(nullptr);
-        delete next;
-    }
-
-};
 
 
 int main() {
+    List mylist;
+    mylist.setCapacity(10);
+
+
+    Patient p1("Mohammad","9130006648","azarmoh81@gmail.com","1111111","Isfahan");
+    Patient p2("Hassan", "9130009999", "hassani@gmail.com", "2222222", "Yazd");
+    Patient p3("Hamid", "9130004444", "hamidi@gmail.com", "3333333", "Tehran");
+
+    mylist.insert(p2);
+    mylist.printList();
+    cout << "Elements Count: " << mylist.getElementCount();
     
+    cout << "\n----------------------------------------------\n";
+    
+    mylist.insert(p1);
+    mylist.printList();
+    cout << "Elements Count: " << mylist.getElementCount();
+    
+    cout << "\n----------------------------------------------\n";
+    
+    mylist.insert(p3);
+    mylist.printList();
+    cout << "Elements Count: " << mylist.getElementCount();
+
+    cout << "\n----------------------------------------------\n";
+    mylist.remove(p2);
+    mylist.printList();
+
+    cout << "\n----------------------------------------------\n";
+    mylist.removeAll();
+    mylist.printList();
+    cout << "Elements Count: " << mylist.getElementCount();
+
+    cout << "\n----------------------------------------------\n";
+    Patient p4("Akbar", "9130005555", "akbariii@gmail.com", "444444", "Ahvaz");
+    Patient p5("Asghar", "91300003737", "asghariii@gmail.com", "444444", "Kerman");
+    mylist.insert(p4);
+    mylist.insert(p5); 
+    mylist.insert(p1);
+    mylist.insert(p2);
+    mylist.insert(p3);
+    mylist.printList();
+    cout << "Elements Count: " << mylist.getElementCount();
+
+    cout << "\n----------------------------------------------\n";
+    cout << mylist.search(p2);
+    cout << "Elements Count: " << mylist.getElementCount();
+
+    cout << "\n----------------------------------------------\n";
+    mylist.removeAll();
+    mylist.printList();
+    cout << "Elements Count: " << mylist.getElementCount();
+
     return 0;
 }

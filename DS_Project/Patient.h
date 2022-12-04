@@ -21,7 +21,11 @@ using namespace std;
 class Patient {
 
 private:
-
+	string name;
+	string address;
+	string phone;
+	string email;
+	string careCard;
 	// For you to fill: There are plenty of hints in the provided files to help you complete this section.
 
 public:
@@ -38,13 +42,17 @@ public:
 	 // Description: Create a patient with a care card number of "0000000000". 
 	 // Postcondition: All data members set to "To be entered", 
 	 //                except the care card number which is set to "0000000000".       
-	Patient();
+	
 
 	// Parameterized Constructor
 	// Description: Create a patient with the given care card number.
 	// Postcondition: If aCareCard does not have 10 digits, then care card is set to "0000000000".
 	//                All other data members set to "To be entered".
 	Patient(string aCareCard);
+
+	//-------- Copy Constructors -------
+	Patient();
+	Patient(string _name, string _phone, string _email, string _carecard, string _address);
 
 	// Add more parameterized constructors here!
 

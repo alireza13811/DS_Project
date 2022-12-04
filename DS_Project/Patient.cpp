@@ -22,7 +22,21 @@
 Patient::Patient() {
 
 	// You need to complete this method.
+	careCard = "0000000000";
+	name = "To be entered";
+	address = "To be entered";
+	phone = "To be entered";
+	email = "To be entered";
 
+}
+
+Patient::Patient(string _name, string _phone, string _email, string _carecard, string _address)
+{
+	this->name = _name;
+	this->phone = _phone;
+	this->email = _email;
+	this->careCard = _carecard;
+	this->address = _address;
 }
 
 // Parameterized Constructor
@@ -32,7 +46,59 @@ Patient::Patient() {
 Patient::Patient(string aCareCard) {
 
 	// You need to complete this method.
+	if (aCareCard.length() == 10)
+		careCard = aCareCard;
+	else
+		careCard = "0000000000";
+	name = "To be entered";
+	address = "To be entered";
+	phone = "To be entered";
+	email = "To be entered";
+}
 
+string Patient::getName() const
+{
+	return name;
+}
+
+string Patient::getAddress() const
+{
+	return address;
+}
+
+string Patient::getPhone() const
+{
+	return phone;
+}
+
+string Patient::getEmail() const
+{
+	return email;
+}
+
+string Patient::getCareCard() const
+{
+	return careCard;
+}
+
+void Patient::setName(const string aName)
+{
+	name = aName;
+}
+
+void Patient::setAddress(const string anAddress)
+{
+	address = anAddress;
+}
+
+void Patient::setPhone(const string aPhone)
+{
+	phone = aPhone;
+}
+
+void Patient::setEmail(const string anEmail)
+{
+	email = anEmail;
 }
 
 // All other parameterized constructors -> You need to implement these methods.

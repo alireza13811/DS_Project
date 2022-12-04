@@ -13,8 +13,10 @@
 #pragma once
 
  // You can add #include statements if you wish.
+#include <iostream>
 #include <string>
 #include "Patient.h"
+#include "node.h"
 
 using namespace std;
 
@@ -29,9 +31,9 @@ private:
 	 * nor can you change them.
 	 */
 
-	(For you to fill)                  // constant MAX_ELEMENTS
-		(For you to fill)                  // Data structure of elements
-		int elementCount;                  // Number of elements in the data structure
+	//(For you to fill)                  // constant MAX_ELEMENTS
+	Node* head;;                // Data structure of elements
+	int elementCount;                  // Number of elements in the data structure
 	int capacity;                      // Actual maximum capacity of data structure   
 
 public:
@@ -44,12 +46,16 @@ public:
 	 *
 	 */
 
-	 // Default constructor
 	List();
+	 // Default constructor
+	List(int elementCount, int capacity);
 
 	// Destructor
 	// Description: Destruct a List object, releasing heap-allocated memory.
-	~List();
+	// ~List();
+
+	// -------- SETTERS ---------
+	void setCapacity(int _capacity);
 
 	// Description: Returns the total element count currently stored in List.
 	int  getElementCount() const;
