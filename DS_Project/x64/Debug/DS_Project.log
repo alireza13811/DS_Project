@@ -1,6 +1,4 @@
 ﻿  List.cpp
   WalkIn.cpp
-  node.cpp
   Generating Code...
-D:\Daneshgah\Term3\Data Structure\Tamrin\tamriiiiin1\DS_Project\List.cpp(108): warning C4172: returning address of local variable or temporary: result
   DS_Project.vcxproj -> D:\Daneshgah\Term3\Data Structure\Tamrin\tamriiiiin1\x64\Debug\DS_Project.exe

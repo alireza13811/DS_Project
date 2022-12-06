@@ -31,10 +31,11 @@ private:
 	 * nor can you change them.
 	 */
 
-	//(For you to fill)                  // constant MAX_ELEMENTS
+	int MAX_ELEMENTS = 1000;                  // constant MAX_ELEMENTS
 	Node* head;;                // Data structure of elements
 	int elementCount;                  // Number of elements in the data structure
 	int capacity;                      // Actual maximum capacity of data structure   
+
 
 public:
 
@@ -48,6 +49,7 @@ public:
 
 	List();
 	 // Default constructor
+	List(int elementCount);
 	List(int elementCount, int capacity);
 
 	// Destructor

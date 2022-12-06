@@ -5,11 +5,8 @@
 
 using namespace std;
 
-
-
-
 int main() {
-    List mylist;
+    List    mylist;
     mylist.setCapacity(10);
 
 
@@ -43,6 +40,7 @@ int main() {
     cout << "Elements Count: " << mylist.getElementCount();
 
     cout << "\n----------------------------------------------\n";
+
     Patient p4("Akbar", "9130005555", "akbariii@gmail.com", "444444", "Ahvaz");
     Patient p5("Asghar", "91300003737", "asghariii@gmail.com", "444444", "Kerman");
     mylist.insert(p4);
@@ -53,11 +51,14 @@ int main() {
     mylist.printList();
     cout << "Elements Count: " << mylist.getElementCount();
 
-    cout << "\n----------------------------------------------\n";
-    cout << mylist.search(p2);
+    cout << "\n---------------Search-------------------\n";
+
+    Patient* helper = mylist.search(p2);
+    cout << *helper;
     cout << "Elements Count: " << mylist.getElementCount();
 
     cout << "\n----------------------------------------------\n";
+    
     mylist.removeAll();
     mylist.printList();
     cout << "Elements Count: " << mylist.getElementCount();

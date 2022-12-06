@@ -4,7 +4,7 @@ List::List()
 {
 	head = new Node();
 	this->elementCount = 0;
-	this->capacity = 0;
+	this->capacity = this->MAX_ELEMENTS;
 }
 
 List::List(int elementCount, int capacity)
@@ -12,6 +12,13 @@ List::List(int elementCount, int capacity)
 	head = new Node();
 	this->elementCount = elementCount;
 	this->capacity = capacity;
+}
+
+List::List(int elementCount)
+{
+	head = new Node();
+	this->elementCount = elementCount;
+	this->capacity = this->MAX_ELEMENTS;
 }
 
 void List::setCapacity(int _capacity)
@@ -100,19 +107,19 @@ Patient* List::search(const Patient& target)
 	else
 	{
 		Node* temp = head->get_next();
-		while ((temp->get_data() > target) or (temp->get_data() == target)) //O(n) But Fasssssster
+		while ((temp->get_data() > target) || (temp->get_data() == target)) //O(n) But Fasssssster
 		{
 			if (temp->get_data() == target)
 			{
-				Patient result = temp->get_data();
-				return &result;
-				
+				Patient* helper = new Patient(temp->get_data().getName() , temp->get_data().getPhone() , temp->get_data().getEmail() , temp->get_data().getCareCard(), temp->get_data().getAddress());
+				return (helper);
 			}
 			else
 			{
 				temp = temp->get_next();
 			}
 		}
+		delete temp;
 		return NULL;
 	}
 }
@@ -124,8 +131,8 @@ void List::printList()
 		Node* node = head;
 		while (node->get_next())
 		{
-			//cout << node->get_next()->get_data();
-			node->get_next()->printNode();
+			cout << node->get_next()->get_data();
+			//node->get_next()->printNode();
 			node = node->get_next();
 		}
 	}
