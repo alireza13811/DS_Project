@@ -31,7 +31,7 @@ int main() {
     mylist.printList();
     cout << "Elements Count: " << mylist.getElementCount();
 
-    cout << "\n\n-------------------Insert New Patient------------------------\n";
+    cout << "\n\n---------------------Remove a Patient------------------------\n";
 
     mylist.remove(p2);
     mylist.printList();
