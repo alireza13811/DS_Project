@@ -30,19 +30,21 @@ Patient::Patient() {
 
 }
 
-Patient::Patient(string _name, string _phone, string _email, string _carecard, string _address)
+// Copy Constructor
+Patient::Patient(const Patient& _patient)
 {
-	this->name = _name;
-	this->phone = _phone;
-	this->email = _email;
-	this->careCard = _carecard;
-	this->address = _address;
+	this->name = _patient.getName();
+	this->phone = _patient.getPhone();
+	this->email = _patient.getEmail();
+	this->address = _patient.getEmail();
+	this->careCard = _patient.getCareCard();
 }
 
 // Parameterized Constructor
 // Description: Create a patient with the given care card number.
 // Postcondition: If aCareCard does not have 10 digits, then care card is set to "0000000000".
 //                All other data members set to "To be entered".
+
 Patient::Patient(string aCareCard) {
 
 	// You need to complete this method.
@@ -54,6 +56,44 @@ Patient::Patient(string aCareCard) {
 	address = "To be entered";
 	phone = "To be entered";
 	email = "To be entered";
+}
+Patient::Patient(string _carecard, string _name)
+{
+	if (_carecard.length() == 10)
+		this->careCard = _carecard;
+	else
+		this->careCard = "0000000000";
+	this->name = _name;
+}
+Patient::Patient(string _carecard, string _name, string _phone)
+{
+	if (_carecard.length() == 10)
+		this->careCard = _carecard;
+	else
+		this->careCard = "0000000000";
+	this->name = _name;
+	this->phone = _phone;
+}
+Patient::Patient(string _carecard, string _name, string _phone, string _email)
+{
+	if (_carecard.length() == 10)
+		this->careCard = _carecard;
+	else
+		this->careCard = "0000000000";
+	this->name = _name;
+	this->phone = _phone;
+	this->email = _email;	
+}
+Patient::Patient(string _carecard, string _name, string _phone, string _email, string _address)
+{
+	if (_carecard.length() == 10)
+		this->careCard = _carecard;
+	else
+		this->careCard = "0000000000";
+	this->name = _name;
+	this->phone = _phone;
+	this->email = _email;
+	this->address = _address;
 }
 
 string Patient::getName() const

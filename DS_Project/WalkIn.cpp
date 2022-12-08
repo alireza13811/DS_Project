@@ -10,39 +10,42 @@ int main() {
     mylist.setCapacity(10);
 
 
-    Patient p1("Mohammad","9130006648","azarmoh81@gmail.com","1111111","Isfahan");
-    Patient p2("Hassan", "9130009999", "hassani@gmail.com", "2222222", "Yazd");
-    Patient p3("Hamid", "9130004444", "hamidi@gmail.com", "3333333", "Tehran");
-
+    Patient p1("1111111111", "Mohammad","azarmoh81@gmail.com","9130006648","Isfahan");
+    Patient p2("2222222222", "Hassan", "hassani@gmail.com", "9130009999", "Yazd");
+    Patient p3("3333333333", "Hamid", "hamidi@gmail.com", "9130004444", "Tehran");
+    
+    cout << "------------------Insert First Patient-----------------------\n";
     mylist.insert(p2);
     mylist.printList();
     cout << "Elements Count: " << mylist.getElementCount();
     
-    cout << "\n----------------------------------------------\n";
+    cout << "\n\n-------------------Insert New Patient------------------------\n";
     
     mylist.insert(p1);
     mylist.printList();
     cout << "Elements Count: " << mylist.getElementCount();
     
-    cout << "\n----------------------------------------------\n";
+    cout << "\n\n-------------------Insert New Patient------------------------\n";
     
     mylist.insert(p3);
     mylist.printList();
     cout << "Elements Count: " << mylist.getElementCount();
 
-    cout << "\n----------------------------------------------\n";
+    cout << "\n\n-------------------Insert New Patient------------------------\n";
+
     mylist.remove(p2);
     mylist.printList();
+    cout << "Elements Count: " << mylist.getElementCount();
 
-    cout << "\n----------------------------------------------\n";
+    cout << "\n\n------------------------Remove All---------------------------\n";
     mylist.removeAll();
     mylist.printList();
     cout << "Elements Count: " << mylist.getElementCount();
 
-    cout << "\n----------------------------------------------\n";
+    cout << "\n\n--------------------Insert 5 Patients------------------------\n";
 
-    Patient p4("Akbar", "9130005555", "akbariii@gmail.com", "444444", "Ahvaz");
-    Patient p5("Asghar", "91300003737", "asghariii@gmail.com", "444444", "Kerman");
+    Patient p4("4444444444", "Akbar", "akbariii@gmail.com", "9130005555", "Ahvaz");
+    Patient p5("4444444444", "Asghar", "asghariii@gmail.com", "91300003737", "Kerman");
     mylist.insert(p4);
     mylist.insert(p5); 
     mylist.insert(p1);
@@ -51,13 +54,13 @@ int main() {
     mylist.printList();
     cout << "Elements Count: " << mylist.getElementCount();
 
-    cout << "\n---------------Search-------------------\n";
+    cout << "\n\n---------------------------Search-----------------------------\n";
 
-    Patient* helper = mylist.search(p2);
-    cout << *helper;
+    Patient* result = mylist.search(p2);
+    cout << *result;
     cout << "Elements Count: " << mylist.getElementCount();
 
-    cout << "\n----------------------------------------------\n";
+    cout << "\n\n-------------------------Remove All---------------------------\n";
     
     mylist.removeAll();
     mylist.printList();

@@ -107,12 +107,12 @@ Patient* List::search(const Patient& target)
 	else
 	{
 		Node* temp = head->get_next();
-		while ((temp->get_data() > target) || (temp->get_data() == target)) //O(n) But Fasssssster
+		while ((temp->get_data() > target) || (temp->get_data() == target)) // O(n) But Faster
 		{
 			if (temp->get_data() == target)
 			{
-				Patient* helper = new Patient(temp->get_data().getName() , temp->get_data().getPhone() , temp->get_data().getEmail() , temp->get_data().getCareCard(), temp->get_data().getAddress());
-				return (helper);
+				Patient* result = new Patient(temp->get_data()); //using copy constructor :)
+				return (result);
 			}
 			else
 			{

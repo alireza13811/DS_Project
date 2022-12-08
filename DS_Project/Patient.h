@@ -42,7 +42,7 @@ public:
 	 // Description: Create a patient with a care card number of "0000000000". 
 	 // Postcondition: All data members set to "To be entered", 
 	 //                except the care card number which is set to "0000000000".       
-	
+	Patient();
 
 	// Parameterized Constructor
 	// Description: Create a patient with the given care card number.
@@ -50,11 +50,15 @@ public:
 	//                All other data members set to "To be entered".
 	Patient(string aCareCard);
 
-	//-------- Copy Constructors -------
-	Patient();
-	Patient(string _name, string _phone, string _email, string _carecard, string _address);
-
+	// Copy Constructor
+	Patient(const Patient& _patient);
+	
 	// Add more parameterized constructors here!
+	Patient(string _carecard, string _name);
+	Patient(string _carecard, string _name, string _phone);
+	Patient(string _carecard, string _name, string _phone, string _email);
+	Patient(string _carecard, string _name, string _phone, string _email, string _address);
+
 
 	// Getters and setters
 	// Description: Returns patient's name.
