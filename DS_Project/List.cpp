@@ -21,6 +21,12 @@ List::List(int elementCount)
 	this->capacity = this->MAX_ELEMENTS;
 }
 
+List::~List()
+{
+	removeAll();
+	delete head;
+}
+
 void List::setCapacity(int _capacity)
 {
 	this->capacity = _capacity;
@@ -132,7 +138,6 @@ void List::printList()
 		while (node->get_next())
 		{
 			cout << node->get_next()->get_data();
-			//node->get_next()->printNode();
 			node = node->get_next();
 		}
 	}

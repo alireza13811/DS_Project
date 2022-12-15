@@ -54,7 +54,7 @@ public:
 
 	// Destructor
 	// Description: Destruct a List object, releasing heap-allocated memory.
-	// ~List();
+	~List();
 
 	// -------- SETTERS ---------
 	void setCapacity(int _capacity);

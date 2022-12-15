@@ -13,19 +13,6 @@ Node::Node(Patient data)
     this->next = nullptr;
 }
 
-//Node* Node::createNode(Patient data)
-//{
-//    Node* node = new Node;
-//    node->data = data;
-//    node->next = nullptr;
-//    return node;
-//}
-
-//void Node::printNode(Node* node)
-//{
-//    cout << node->data << endl;
-//}
-
 void Node::printNode()
 {
     cout << this->data.getCareCard() << " - Patient: " << this->data.getName() << ", " << this->data.getAddress() << ", " <<

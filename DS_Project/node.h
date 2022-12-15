@@ -10,7 +10,6 @@ public:
     Node();
     Node(Patient data);
 
-    //void printNode(Node* node);
     void printNode();
 
     void set_next(Node* next);
